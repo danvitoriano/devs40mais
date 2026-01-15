@@ -256,16 +256,69 @@
             margin-bottom: 2rem;
         }
 
-        .podcast-image {
-            max-width: 600px;
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
+        /* Podcast Grid Styles */
+        .podcast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1rem;
         }
 
-        .podcast-image:hover {
-            transform: scale(1.05);
+        .podcast-video {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+        }
+
+        .podcast-video:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .podcast-video a {
+            position: relative;
+            display: block;
+            text-decoration: none;
+        }
+
+        .video-thumb {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(34, 181, 115, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-overlay i {
+            font-size: 4rem;
+            color: white;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .podcast-video:hover .video-overlay {
+            opacity: 1;
         }
 
         /* Contact Section */
@@ -400,6 +453,15 @@
                 padding: 0.8rem 2rem;
                 font-size: 1rem;
             }
+
+            .podcast-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .video-overlay i {
+                font-size: 3rem;
+            }
         }
     </style>
 </head>
@@ -501,14 +563,75 @@
     <!-- Podcast Section -->
     <section id="podcast" class="podcast">
         <h2>Nosso Podcast</h2>
-        <a href="https://www.youtube.com/playlist?list=PLndJnupfcnxE4dErxRpXICLXQ2Xz5UduD" target="_blank" rel="noopener noreferrer">
-            <img src="img/DEVS 40+ podcast.png" alt="DEVS 40+ Podcast" class="podcast-image">
-        </a>
-        <p style="margin-top: 2rem; color: #666; font-size: 1.2rem;">
+        <p style="margin-bottom: 2rem; color: #666; font-size: 1.2rem;">
             Ouça histórias inspiradoras e conversas sobre carreira, tecnologia e vida profissional 
             com desenvolvedores experientes que estão fazendo a diferença no mercado.
         </p>
-        <a href="https://www.youtube.com/playlist?list=PLndJnupfcnxE4dErxRpXICLXQ2Xz5UduD" target="_blank" rel="noopener noreferrer" class="cta-button" style="margin-top: 1.5rem; background: var(--primary-color); color: white;">
+        
+        <!-- Grid de Vídeos -->
+        <div class="podcast-grid">
+            <!-- Vídeo 1 -->
+            <div class="podcast-video">
+                <a href="https://www.youtube.com/watch?v=Lo71JzvRx1U" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.youtube.com/vi/Lo71JzvRx1U/maxresdefault.jpg" alt="DEVS 40+ Episódio 1" class="video-thumb">
+                    <div class="video-overlay">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Vídeo 2 -->
+            <div class="podcast-video">
+                <a href="https://www.youtube.com/watch?v=alerXJ3CElE" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.youtube.com/vi/alerXJ3CElE/maxresdefault.jpg" alt="DEVS 40+ Episódio 2" class="video-thumb">
+                    <div class="video-overlay">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Vídeo 3 -->
+            <div class="podcast-video">
+                <a href="https://www.youtube.com/watch?v=GJCrC0OfjGw" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.youtube.com/vi/GJCrC0OfjGw/maxresdefault.jpg" alt="DEVS 40+ Episódio 3" class="video-thumb">
+                    <div class="video-overlay">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Vídeo 4 -->
+            <div class="podcast-video">
+                <a href="https://www.youtube.com/watch?v=MQq7e0Lx7FI" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.youtube.com/vi/MQq7e0Lx7FI/maxresdefault.jpg" alt="DEVS 40+ Episódio 4" class="video-thumb">
+                    <div class="video-overlay">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Vídeo 5 -->
+            <div class="podcast-video">
+                <a href="https://www.youtube.com/watch?v=t1jmgQsPehA" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.youtube.com/vi/t1jmgQsPehA/maxresdefault.jpg" alt="DEVS 40+ Episódio 5" class="video-thumb">
+                    <div class="video-overlay">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Vídeo 6 -->
+            <div class="podcast-video">
+                <a href="https://www.youtube.com/watch?v=TAbEoFuVjqY" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.youtube.com/vi/TAbEoFuVjqY/maxresdefault.jpg" alt="DEVS 40+ Episódio 6" class="video-thumb">
+                    <div class="video-overlay">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <a href="https://www.youtube.com/playlist?list=PLndJnupfcnxE4dErxRpXICLXQ2Xz5UduD" target="_blank" rel="noopener noreferrer" class="cta-button" style="margin-top: 2rem; background: var(--primary-color); color: white;">
             <i class="fab fa-youtube"></i> Ver Todos os Episódios
         </a>
     </section>
