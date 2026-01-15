@@ -1,0 +1,12 @@
+{
+  "name": "devs40mais",
+  "version": "1.0.0",
+  "description": "DEVS 40+ - Comunidade Tech para desenvolvedores acima de 40 anos",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "build": "echo 'No build required for static site'"
+  }
+}
+
