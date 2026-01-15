@@ -1,54 +1,575 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A layout example that shows off a responsive product landing page.">
-    <title>DEVS 40+</title>
-    <link rel="stylesheet" href="pure.css">
-    <link rel="stylesheet" href="grids-responsive-min.css">
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="DEVS 40+ - Comunidade Tech para desenvolvedores acima de 40 anos">
+    <title>DEVS 40+ | Comunidade Tech 40+</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #22B573;
+            --dark-color: #2d3e50;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --accent-color: #1f8dd6;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Header/Navigation */
+        header {
+            background: var(--dark-color);
+            color: var(--text-light);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a8f5a 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-logo {
+            max-width: 300px;
+            margin-bottom: 2rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+            color: var(--text-light);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--text-light);
+            color: var(--primary-color);
+            padding: 1rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: var(--text-light);
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--text-light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Retrospective Section */
+        .retrospective {
+            padding: 5rem 2rem;
+            background: var(--dark-color);
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .retrospective-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .retrospective h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        .retrospective-details {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .retrospective-details p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .video-badge {
+            display: inline-block;
+            background: #ff0000;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        /* Podcast Section */
+        .podcast {
+            padding: 5rem 2rem;
+            background: var(--text-light);
+            text-align: center;
+        }
+
+        .podcast h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+        }
+
+        .podcast-image {
+            max-width: 600px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .podcast-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-logo {
+                max-width: 200px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--dark-color);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about h2,
+            .features h2,
+            .retrospective h2,
+            .podcast h2,
+            .contact h2 {
+                font-size: 2rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#home" class="logo">DEVS 40+</a>
+            <button class="menu-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#retrospectiva">Retrospectiva 2023</a></li>
+                <li><a href="#podcast">Podcast</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<div class="header">
-    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-        <a class="pure-menu-heading" href="index.html">COMUNIDADE TECH 40+</a>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <img src="img/logo.png" alt="DEVS 40+ Logo" class="hero-logo">
+            <h1>COMUNIDADE TECH 40+</h1>
+            <p>Conectando desenvolvedores experientes e compartilhando conhecimento</p>
+            <a href="#contato" class="cta-button">Entre em Contato</a>
+        </div>
+    </section>
 
-        <!-- <ul class="pure-menu-list">
-            <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Home</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Tour</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sign Up</a></li>
-        </ul> -->
-    </div>
-</div>
+    <!-- About Section -->
+    <section id="sobre" class="about">
+        <div class="about-content">
+            <h2>Sobre a Comunidade</h2>
+            <p>
+                A DEVS 40+ é uma comunidade dedicada a desenvolvedores e profissionais de tecnologia 
+                com mais de 40 anos. Nosso objetivo é criar um espaço de networking, troca de experiências 
+                e valorização da maturidade profissional no mercado tech.
+            </p>
+            <p>
+                Acreditamos que a experiência é um diferencial competitivo e que a idade traz sabedoria, 
+                perspectiva e habilidades únicas que enriquecem o ecossistema de tecnologia.
+            </p>
+        </div>
+    </section>
 
-<div class="splash-container">
-    <div class="splash">
-        <img src="img/logo.png" alt="DEVS 40+" style="width: 300px;">
-        <h1 class="splash-head" style="display: none;">TECH 40+ CONF - 2ª Edição</h1>
-        <p>
-            Setembro de 2024, São Paulo.
-        </p>
-        <p>
-            Informações e mídia kit: <br> <a href="mailto:contato@devs40mais.com.br" target="_blank" class="pure-button pure-button-primary" style="padding:20px 100px;">contato@devs40mais.com.br</a>
-        </p>
-    </div>
-</div>
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Por que fazer parte?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Networking</h3>
+                <p>Conecte-se com profissionais experientes e construa relacionamentos valiosos na comunidade tech.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Conhecimento</h3>
+                <p>Compartilhe e aprenda com a experiência coletiva de décadas de carreira em tecnologia.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Oportunidades</h3>
+                <p>Descubra novas oportunidades de carreira e projetos que valorizam a experiência.</p>
+            </div>
+        </div>
+    </section>
 
-<div class="content-wrapper">
+    <!-- Retrospective Section -->
+    <section id="retrospectiva" class="retrospective">
+        <div class="retrospective-content">
+            <h2>TECH 40+ CONF 2023</h2>
+            <div class="video-badge">
+                <i class="fab fa-youtube"></i> Disponível no YouTube
+            </div>
+            <div class="retrospective-details">
+                <p><strong>Retrospectiva da 1ª Edição</strong></p>
+                <p><i class="fas fa-calendar"></i> Realizado em 2023</p>
+                <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP</p>
+            </div>
+            <p>
+                Reviva os melhores momentos da nossa primeira conferência! 
+                Palestras inspiradoras, networking e muita troca de experiências entre 
+                profissionais experientes da área de tecnologia.
+            </p>
+            <a href="https://www.youtube.com/watch?v=lRDcP6nCuj8" target="_blank" rel="noopener noreferrer" class="cta-button">
+                <i class="fab fa-youtube"></i> Assista a Gravação Completa
+            </a>
+        </div>
+    </section>
 
-    <div style="margin: 0 auto; text-align: center;">
-        <a href="https://t.co/lTZh65xzkq" target="_blank">
-            <img src="img/DEVS 40+ podcast.png" style="width:600px; margin: 0 auto;" alt="">
+    <!-- Podcast Section -->
+    <section id="podcast" class="podcast">
+        <h2>Nosso Podcast</h2>
+        <a href="https://www.youtube.com/playlist?list=PLndJnupfcnxE4dErxRpXICLXQ2Xz5UduD" target="_blank" rel="noopener noreferrer">
+            <img src="img/DEVS 40+ podcast.png" alt="DEVS 40+ Podcast" class="podcast-image">
         </a>
-    </div>
-    <div class="footer l-box is-center">
-        danvitoriano.com.br - 2024 - Todos os direitos reservados.
-    </div>
+        <p style="margin-top: 2rem; color: #666; font-size: 1.2rem;">
+            Ouça histórias inspiradoras e conversas sobre carreira, tecnologia e vida profissional 
+            com desenvolvedores experientes que estão fazendo a diferença no mercado.
+        </p>
+        <a href="https://www.youtube.com/playlist?list=PLndJnupfcnxE4dErxRpXICLXQ2Xz5UduD" target="_blank" rel="noopener noreferrer" class="cta-button" style="margin-top: 1.5rem; background: var(--primary-color); color: white;">
+            <i class="fab fa-youtube"></i> Ver Todos os Episódios
+        </a>
+    </section>
 
-</div>
+    <!-- Contact Section -->
+    <section id="contato" class="contact">
+        <h2>Entre em Contato</h2>
+        <p>Quer saber mais sobre a comunidade ou oportunidades de colaboração?</p>
+        <a href="mailto:contato@devs40mais.com.br" class="cta-button">
+            <i class="fas fa-envelope"></i> contato@devs40mais.com.br
+        </a>
+    </section>
 
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 DEVS 40+ | Todos os direitos reservados</p>
+        <p>danvitoriano.com.br</p>
+        <div class="social-links">
+            <a href="https://www.youtube.com/playlist?list=PLndJnupfcnxE4dErxRpXICLXQ2Xz5UduD" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube - Podcast">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="http://instagram.com/devs40mais" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://linkedin.com/company/devs40mais" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll para links de navegação
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Menu toggle para mobile
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Fechar menu ao clicar em um link (mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
