@@ -108,6 +108,14 @@
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
         .cta-button {
             display: inline-block;
             background: var(--text-light);
@@ -118,12 +126,20 @@
             font-weight: bold;
             font-size: 1.1rem;
             transition: transform 0.3s, box-shadow 0.3s;
-            animation: fadeInUp 1s ease-out 0.4s both;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .cta-button-whatsapp {
+            background: #25D366;
+            color: var(--text-light);
+        }
+
+        .cta-button-whatsapp:hover {
+            background: #1fb855;
         }
 
         /* About Section */
@@ -454,6 +470,10 @@
                 font-size: 1rem;
             }
 
+            .hero-buttons {
+                gap: 0.8rem;
+            }
+
             .podcast-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -489,7 +509,12 @@
             <img src="img/logo.png" alt="DEVS 40+ Logo" class="hero-logo">
             <h1>COMUNIDADE TECH 40+</h1>
             <p>Conectando desenvolvedores experientes e compartilhando conhecimento</p>
-            <a href="#contato" class="cta-button">Entre em Contato</a>
+            <div class="hero-buttons">
+                <a href="https://chat.whatsapp.com/KAVfzF6Bx6r26TSNfye2Zi" target="_blank" rel="noopener noreferrer" class="cta-button cta-button-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Junte-se ao Grupo WhatsApp
+                </a>
+                <a href="#contato" class="cta-button">Entre em Contato</a>
+            </div>
         </div>
     </section>
 
@@ -655,6 +680,9 @@
             </a>
             <a href="http://instagram.com/devs40mais" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
                 <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://chat.whatsapp.com/KAVfzF6Bx6r26TSNfye2Zi" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="Grupo WhatsApp">
+                <i class="fab fa-whatsapp"></i>
             </a>
             <a href="https://linkedin.com/company/devs40mais" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
                 <i class="fab fa-linkedin"></i>
