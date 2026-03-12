@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -8,7 +9,7 @@ export default function Header() {
   return (
     <header>
       <nav>
-        <a href="#home" className="logo">DEVS 40+</a>
+        <NavLink to="/" className="logo">DEVS 40+</NavLink>
         <button
           className="menu-toggle"
           aria-label="Menu"
@@ -17,12 +18,12 @@ export default function Header() {
           <i className="fas fa-bars"></i>
         </button>
         <ul className={`nav-links${menuOpen ? ' active' : ''}`}>
-          <li><a href="#home" onClick={handleLinkClick}>Início</a></li>
-          <li><a href="#evento" onClick={handleLinkClick}>Evento</a></li>
-          <li><a href="#sobre" onClick={handleLinkClick}>Sobre</a></li>
-          <li><a href="#retrospectiva" onClick={handleLinkClick}>Retrospectiva 2023</a></li>
-          <li><a href="#podcast" onClick={handleLinkClick}>Podcast</a></li>
-          <li><a href="#contato" onClick={handleLinkClick}>Contato</a></li>
+          <li><NavLink to="/" onClick={handleLinkClick}>Início</NavLink></li>
+          <li><NavLink to="/evento" onClick={handleLinkClick}>Evento</NavLink></li>
+          <li><NavLink to="/sobre" onClick={handleLinkClick}>Sobre</NavLink></li>
+          <li><NavLink to="/retrospectiva" onClick={handleLinkClick}>Retrospectiva 2023</NavLink></li>
+          <li><NavLink to="/podcast" onClick={handleLinkClick}>Podcast</NavLink></li>
+          <li><NavLink to="/contato" onClick={handleLinkClick}>Contato</NavLink></li>
         </ul>
       </nav>
     </header>

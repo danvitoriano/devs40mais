@@ -1,3 +1,4 @@
+import { Routes, Route, Outlet } from 'react-router-dom'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Event from './components/Event'
@@ -8,18 +9,27 @@ import Podcast from './components/Podcast'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
-export default function App() {
+function Layout() {
   return (
     <>
       <Header />
-      <Hero />
-      <Event />
-      <About />
-      <Features />
-      <Retrospective />
-      <Podcast />
-      <Contact />
+      <Outlet />
       <Footer />
     </>
+  )
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<><Hero /><Features /><Event /></>} />
+        <Route path="/evento" element={<Event />} />
+        <Route path="/sobre" element={<About />} />
+        <Route path="/retrospectiva" element={<Retrospective />} />
+        <Route path="/podcast" element={<Podcast />} />
+        <Route path="/contato" element={<Contact />} />
+      </Route>
+    </Routes>
   )
 }
