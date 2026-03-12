@@ -18,6 +18,7 @@ export default function Header() {
         </button>
         <ul className={`nav-links${menuOpen ? ' active' : ''}`}>
           <li><a href="#home" onClick={handleLinkClick}>Início</a></li>
+          <li><a href="#evento" onClick={handleLinkClick}>Evento</a></li>
           <li><a href="#sobre" onClick={handleLinkClick}>Sobre</a></li>
           <li><a href="#retrospectiva" onClick={handleLinkClick}>Retrospectiva 2023</a></li>
           <li><a href="#podcast" onClick={handleLinkClick}>Podcast</a></li>

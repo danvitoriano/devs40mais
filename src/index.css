@@ -331,6 +331,90 @@ nav {
     opacity: 1;
 }
 
+/* Event Section */
+.event {
+    padding: 5rem 2rem;
+    background: #f0faf5;
+    text-align: center;
+    border-top: 4px solid var(--primary-color);
+}
+
+.event-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.event-badge {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.event h2 {
+    font-size: 2.5rem;
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
+}
+
+.event-desc {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.event-details {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+
+.event-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    font-size: 1.05rem;
+    color: var(--text-dark);
+}
+
+.event-detail-item i {
+    color: var(--primary-color);
+    margin-top: 0.2rem;
+    min-width: 16px;
+}
+
+.cta-button-event {
+    background: var(--dark-color);
+    color: var(--text-light);
+}
+
+.cta-button-event:hover {
+    background: #1a2a38;
+}
+
+@media (max-width: 768px) {
+    .event h2 {
+        font-size: 2rem;
+    }
+
+    .event-details {
+        padding: 1.2rem;
+    }
+}
+
 /* Contact Section */
 .contact {
     padding: 5rem 2rem;

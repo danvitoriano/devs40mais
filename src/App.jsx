@@ -1,5 +1,6 @@
 import Header from './components/Header'
 import Hero from './components/Hero'
+import Event from './components/Event'
 import About from './components/About'
 import Features from './components/Features'
 import Retrospective from './components/Retrospective'
@@ -12,6 +13,7 @@ export default function App() {
     <>
       <Header />
       <Hero />
+      <Event />
       <About />
       <Features />
       <Retrospective />
